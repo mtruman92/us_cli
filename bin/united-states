@@ -1,3 +1,4 @@
 #!/usr/bin/env ruby
 
-puts "Hello World"
+require './lib/us_cli'
+UsCli::CLI.new.call
