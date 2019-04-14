@@ -45,7 +45,7 @@ def details(states)
     puts "Hi, you've chosen #{states[input.to_i - 1].upcase}! \n"
     elsif states.include?"#{states[input.upcase.to_i - 1]}"
     puts "Hi, you've chosen #{input.upcase}! \n "
-  elsif  input != (1..50) || input != "#{states}"
+  elsif  input != (001..050) || input != "#{states}"
     puts "Invalid input, please try again! \n ".upcase
   end 
 end 
