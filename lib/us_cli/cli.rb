@@ -79,10 +79,11 @@ end
 def run(states)
   command = "" 
   while command  
-  puts "\n " "Please enter a command (options include: 
+  puts "\n " "Please enter a command. Options include: 
+  
   - help : displays this help message
   - list : displays a list of the States that you can get more information on
-  - exit : exits the portal\n )"
+  - exit : exits the portal\n "
    #unless 
     #puts "Invalid input, please try again"
     #puts details(states)
