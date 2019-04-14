@@ -58,7 +58,7 @@ end
 
 def display_state
     puts ""
-    puts "----------- #{state.name} ------------"
+    puts "*************** #{state.name.upcase} ****************"
     puts ""
     puts "Date of Entry:    #{state.entry_date}"
     puts "Capital:          #{state.capital}"
@@ -67,7 +67,7 @@ def display_state
     puts "Nickname(s):      #{state.nick_name}"
     puts "Motto:            #{state.motto}"
     puts ""
-    puts "---------------Description--------------"
+    puts "**************Description**************"
     puts ""
     puts "#{state.detail}"
     puts ""
@@ -83,8 +83,6 @@ def menu
   - list : displays a list of the States that you can get more information on
   - exit : exits the portal\n "
  
-    #puts "Invalid input, please try again"
-    #puts details(states)
   command = gets.downcase.strip  
   
   case command 
