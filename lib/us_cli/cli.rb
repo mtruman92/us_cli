@@ -1,5 +1,17 @@
-#class UsCli::CLI
-  
+class UsCli::CLI
+
+attr_accessor :state_name
+
+  def call
+    help 
+    greeting 
+    list(states)
+    USCli::Scraper
+    details(states)
+    exit_states
+    run(states)
+  end
+    
   def help
   help = <<-HELP
   Welcome to United States Facts Portal. Please utilize the following commands:
@@ -89,7 +101,7 @@ def details(states)
     puts "Hi, you've chosen #{states[input.to_i - 1]} \n"
     #print_us(unitedstates)
     elsif states.include?"#{states[input.to_i - 1]}"
-    puts "Hi, you've chosen #{input}! \n "
+    puts "Hi, you've chosen #{@state_name}! \n "
   else 
     puts "Invalid input, please try again! \n ".upcase
   end 
@@ -153,4 +165,4 @@ def run(states)
   end 
   run(states)
   
-#end
+end

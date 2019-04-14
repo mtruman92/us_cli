@@ -1,4 +1,4 @@
-#class UsCli::Scraper
+class UsCli::Scraper
 
 require "nokogiri"
 require "open-uri"
@@ -18,7 +18,7 @@ puts
 
 puts entry_date = doc.css("div.m-detail--body p")[1].text
 puts capital = doc.css("div.m-detail--body p")[2].text
-puts pop = doc.css("div.m-detail--body p")[3].text
+puts population = doc.css("div.m-detail--body p")[3].text
 puts size = doc.css("div.m-detail--body p")[4].text
 puts nick_name = doc.css("div.m-detail--body p")[5].text
 puts moto = doc.css("div.m-detail--body p")[6].text
@@ -66,6 +66,6 @@ def print_us(unitedstates)
     puts ""
   end
 
-#end
+end
 
 p states
