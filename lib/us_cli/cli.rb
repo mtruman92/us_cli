@@ -5,25 +5,28 @@ attr_accessor :state
 STATES = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming" ]
 
 def call
-  #while
+  #while input
     self.greeting 
     self.list
     self.get_selection #set the state to a State object
     self.display_state
-    self.menu  #exit or not go back
-    input = gets.chomp
+    self.help
+    #self.menu  #exit or not go back
+    #self.get_selection
+    #input = gets.chomp
+    #while input
+      #case input
+        #when 'restart'
+         # self.list
+          
     #case input bla bla do bla bla 
+  #end
+  #end
 end
     
 def help
-  help = <<-HELP
-  Welcome to United States Facts Portal. Please utilize the following commands:
-  - help : displays this help message
-  - list : displays a list of the United States that you can get more information on
-  - details : displays details about the state you chose 
-  - exit : exits the portal\n
-HELP
-
+ # help = <<- help
+  puts "Would you like more information about another state? Press 'y' for YES or 'n' for NO"
 end
 
 def greeting
@@ -81,6 +84,7 @@ def menu
   
   - help : displays this help message
   - list : displays a list of the States that you can get more information on
+  - restart : starts the portal to select a new state
   - exit : exits the portal\n "
  
   command = gets.downcase.strip  
@@ -89,7 +93,9 @@ def menu
     when 'list'
         list 
     when 'help'
-        help 
+        menu 
+    when 'restart'
+      list
     when 'exit'
         exit_states
         break 
