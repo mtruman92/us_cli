@@ -68,7 +68,7 @@ states = [
 "Wyoming \n "]
 
 def greeting
-puts "Welcome to The United States Facts Portal! \n "
+  puts "Welcome to The United States Facts Portal! \n "
 end
 
 greeting 
@@ -100,6 +100,26 @@ details(states)
 def exit_states
   puts "Thank you for using The United States Facts portal, please come again!"
 end 
+
+def print_us(unitedstates)
+    puts ""
+    puts "----------- #{unitedstates.state_name} ------------"
+    puts ""
+    puts "Date of Entry:    #{unitedstates.entry_date}"
+    puts "Capital:          #{unitedstates.capital}"
+    puts "Population:       #{unitedstates.population}"
+    puts "Size:             #{unitedstates.size}"
+    puts "Nickname(s):      #{unitedstates.nick_name}"
+    puts "Motto:            #{unitedstates.motto}"
+    puts ""
+    puts "---------------Description--------------"
+    puts ""
+    puts "#{unitedstates.description}"
+    puts ""
+    
+  end
+  
+   #print_us(unitedstates)
 
 def run(states)
   #help
