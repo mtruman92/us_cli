@@ -1,3 +1,5 @@
+#class UsCli::Scraper
+
 require "nokogiri"
 require "open-uri"
 
@@ -47,5 +49,23 @@ doc.css(".m-ellipsis--text").each do |state|
   states << state.text
 end
 
+def print_us(unitedstates)
+    puts ""
+    puts "----------- #{unitedstates.state_name} ------------"
+    puts ""
+    puts "Date of Entry:    #{unitedstates.entry_date}"
+    puts "Capital:          #{unitedstates.capital}"
+    puts "Population:       #{unitedstates.population}"
+    puts "Size:             #{unitedstates.size}"
+    puts "Nickname(s):      #{unitedstates.nick_name}"
+    puts "Motto:            #{unitedstates.motto}"
+    puts ""
+    puts "---------------Description--------------"
+    puts ""
+    puts "#{unitedstates.description}"
+    puts ""
+  end
+
+#end
 
 p states

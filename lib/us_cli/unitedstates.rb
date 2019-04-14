@@ -1,10 +1,12 @@
 class UsCli::UnitedStates
   
-  attr_accessor :state_name, :entry_date, :capital, :population, :size, :nick_name, :motto
+  attr_accessor :state_name, :entry_date, :capital, :population, :size, :nick_name, :motto, 
   
   def initalize(state_name)
     @state_name = state_name
   end
+  
+
 
   def entry_date
       @entry_date ||= doc.css("div.m-detail--body p")[1].text
