@@ -39,13 +39,13 @@ list(states)
 
 def details(states)
   puts "Hello, please choose a state:\n "
-  input = gets.chomp
-  if (1..50).to_a.include?(input.to_i) 
+  input = gets.upcase.chomp
+  if (1..50).to_a.include?(input.upcase.to_i) 
   puts "\n"
-    puts "Hi, you've chosen #{states[input.to_i - 1]} \n"
-    elsif states.include?"#{states[input.to_i - 1]}"
-    puts "Hi, you've chosen #{@state_name}! \n "
-  else 
+    puts "Hi, you've chosen #{states[input.to_i - 1].upcase}! \n"
+    elsif states.include?"#{states[input.upcase.to_i - 1]}"
+    puts "Hi, you've chosen #{input.upcase}! \n "
+  elsif  input != (1..50) || input != "#{states}"
     puts "Invalid input, please try again! \n ".upcase
   end 
 end 
@@ -84,7 +84,7 @@ def run(states)
   - help : displays this help message
   - list : displays a list of the States that you can get more information on
   - exit : exits the portal\n "
-   #unless 
+ 
     #puts "Invalid input, please try again"
     #puts details(states)
   command = gets.downcase.strip  
@@ -98,9 +98,11 @@ def run(states)
         exit_states
         break 
       else 
-        help 
+        puts "Invalid input, please try again!"
+        
       end 
     end 
+  
   end 
   run(states)
   
