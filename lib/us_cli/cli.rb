@@ -1,15 +1,19 @@
-#class UsCli::CLI
+class UsCli::CLI
 
-#attr_accessor :state_name, :greeting
+attr_accessor :state
 
-  # def call
-  #  greeting 
-  #  list(states)
-  #  USCli::Scraper
-  #  details(states)
-  #  exit_states
-  #  run(states)
-  # end
+STATES = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming \n "]
+
+def call
+  #while
+    self.greeting 
+    self.list
+    self.get_selection #set the state to a State object
+    self.display_state
+    self.menu  #exit or not go back
+    input = gets.chomp
+    #case input bla bla do bla bla 
+end
     
 def help
   help = <<-HELP
@@ -22,61 +26,55 @@ HELP
 
 end
 
-states = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming \n "]
-
 def greeting
   puts "Welcome to The United States Facts Portal! \n "
 end
 
-greeting 
-
-def list(states)
-  states.each_with_index {|s, index|
+def list
+  STATES.each_with_index {|s, index|
   puts "#{index+1}. #{s}"}&&"\n"
 end
- 
-list(states) 
 
-def details(states)
+def get_selection
   puts "Hello, please choose a state:\n "
   input = gets.upcase.chomp
-  if (1..50).to_a.include?(input.upcase.to_i) 
-  puts "\n"
-    puts "Hi, you've chosen #{states[input.to_i - 1].upcase}! \n"
-    elsif states.include?"#{states[input.upcase.to_i - 1]}"
+  if (1..50).include?(input.to_i)
+    selection = STATES[input.to_i - 1]
+    puts "\n"
+    puts "Hi, you've chosen #{selection.upcase}! \n"
+    @state = UsCli::UnitedStates.new(selection.downcase)
+    UsCli::Scraper.scrape_state(state)
+  elsif STATES.include?"#{STATES[input.upcase.to_i - 1]}"
     puts "Hi, you've chosen #{input.upcase}! \n "
-  elsif  input != (001..050) || input != "#{states}"
+  elsif  input != (001..050) || input != "#{STATES}"
     puts "Invalid input, please try again! \n ".upcase
-  end 
-end 
+  end
+end
 
-details(states)
 
 def exit_states
   puts "Thank you for using The United States Facts portal, please come again!"
 end 
 
-#def print_us(unitedstates)
-#    puts ""
-#    puts "----------- #{unitedstates.state_name} ------------"
-#    puts ""
-#    puts "Date of Entry:    #{unitedstates.entry_date}"
-#    puts "Capital:          #{unitedstates.capital}"
-#    puts "Population:       #{unitedstates.population}"
-#    puts "Size:             #{unitedstates.size}"
-#    puts "Nickname(s):      #{unitedstates.nick_name}"
-#    puts "Motto:            #{unitedstates.motto}"
-#    puts ""
-#    puts "---------------Description--------------"
-#    puts ""
-#    puts "#{unitedstates.description}"
-#    puts ""
-#    
-#  end
+def display_state
+    puts ""
+    puts "----------- #{state.name} ------------"
+    puts ""
+    puts "Date of Entry:    #{state.entry_date}"
+    puts "Capital:          #{state.capital}"
+    puts "Population:       #{state.population}"
+    puts "Size:             #{state.size}"
+    puts "Nickname(s):      #{state.nick_name}"
+    puts "Motto:            #{state.motto}"
+    puts ""
+    puts "---------------Description--------------"
+    puts ""
+    puts "#{state.detail}"
+    puts ""
+    
+  end
   
-   #print_us(unitedstates)
-
-def run(states)
+def menu
   command = "" 
   while command  
   puts "\n " "Please enter a command. Options include: 
@@ -91,7 +89,7 @@ def run(states)
   
   case command 
     when 'list'
-      list(states) && details(states)
+        list 
     when 'help'
         help 
     when 'exit'
@@ -99,11 +97,8 @@ def run(states)
         break 
       else 
         puts "Invalid input, please try again!"
-        
       end 
     end 
-  
   end 
-  run(states)
   
-#end
+end

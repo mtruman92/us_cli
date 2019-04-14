@@ -3,69 +3,22 @@ class UsCli::Scraper
 require "nokogiri"
 require "open-uri"
 
-BASE_PATH = "https://www.history.com/topics/us-states/"
+def self.scrape_state(state)
+  file = open(state.url)
+  doc = Nokogiri::HTML(file)
+  
+  state.detail = doc.css("div.m-detail--body p")[0].text
+  state.entry_date = doc.css("div.m-detail--body p")[1].text
+  state.capital = doc.css("div.m-detail--body p")[2].text
+  state.population = doc.css("div.m-detail--body p")[3].text
+  state.size = doc.css("div.m-detail--body p")[4].text
+  state.nick_name = doc.css("div.m-detail--body p")[5].text
+  state.motto = doc.css("div.m-detail--body p")[6].text
 
-path = BASE_PATH + "#{@state_name}"
-
-# Scrape details --------------------
-
-file = open(path)
-doc = Nokogiri::HTML(file)
-
-puts detail = doc.css("div.m-detail--body p")[0].text
-
-puts
-
-puts entry_date = doc.css("div.m-detail--body p")[1].text
-puts capital = doc.css("div.m-detail--body p")[2].text
-puts population = doc.css("div.m-detail--body p")[3].text
-puts size = doc.css("div.m-detail--body p")[4].text
-puts nick_name = doc.css("div.m-detail--body p")[5].text
-puts moto = doc.css("div.m-detail--body p")[6].text
-
-puts
-puts "Here are the details:"
-puts
-facts = []
-
-detail = doc.css("div.m-detail--body ul").each do |fact|
-  facts << fact.text
-end
-
-facts.each.with_index(1) {|fact, i| puts "#{i} #{fact}."}
-
-
-#Chosing the state scrape
-
-require "nokogiri"
-require "open-uri"
-
-path = "https://www.history.com/topics/us-states"
-file = open(path)
-doc = Nokogiri::HTML(file)
-
-states = []
-doc.css(".m-ellipsis--text").each do |state|
-  states << state.text
-end
-
-def print_us(unitedstates)
-    puts ""
-    puts "----------- #{unitedstates.state_name} ------------"
-    puts ""
-    puts "Date of Entry:    #{unitedstates.entry_date}"
-    puts "Capital:          #{unitedstates.capital}"
-    puts "Population:       #{unitedstates.population}"
-    puts "Size:             #{unitedstates.size}"
-    puts "Nickname(s):      #{unitedstates.nick_name}"
-    puts "Motto:            #{unitedstates.motto}"
-    puts ""
-    puts "---------------Description--------------"
-    puts ""
-    puts "#{unitedstates.description}"
-    puts ""
+  doc.css("div.m-detail--body ul").each do |fact|
+    state.facts << fact.text
   end
+end
 
 end
 
-p states
