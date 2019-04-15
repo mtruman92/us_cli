@@ -22,19 +22,14 @@ def call
           puts self.display_state
           self.help
           if input = gets.chomp
-            
-          #self.display_state
-          #self.help
-          #when 'n'
-            #self.exit_states
-            #break
-          else 
-            puts "Invalid Entry"
+          if input == 'n'
+            self.exit_states
+            break
           end
         end
     #case input bla bla do bla bla 
   end
-  #end
+  end
 end
     
 def help
