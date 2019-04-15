@@ -5,6 +5,7 @@ attr_accessor :state
 STATES = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming" ]
 
 def call
+  #input = gets.chomp
   #while input
     self.greeting 
     self.list
@@ -16,21 +17,29 @@ def call
     input = gets.chomp
     while input
       case input
-        when 'y'
+        when 'y'  
           self.list
           self.get_selection 
           puts self.display_state
           self.help
-          if input = gets.chomp
-          if input == 'n'
+           input = gets.chomp
+           # if input != "y" || "n"
+             # puts "Invalid Entry. Please try again!"
+              #self.help 
+              #self.list
+              #self.get_selection 
+              #puts self.display_state
+              #self.help
+          when 'n'
             self.exit_states
             break
           end
         end
-    #case input bla bla do bla bla 
-  end
-  end
-end
+      end
+    #end
+  #end
+  
+ 
     
 def help
  # help = <<- help
