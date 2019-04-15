@@ -12,7 +12,10 @@ Steps
 4. Create a new repository 
 5. Name the repository -> Create
 6. Create the repository on the command line in learn IDE 
-- git add .
--git commit -m "first commit"
--git remote add origin "git path provided"
--git push -u origin master
+- git add . -> stages changes made
+-git commit -m "first commit" -> invokes commit changes allowing you to enter messages of what was done
+-git remote add origin "git path provided" -> set the repository as the repository for that folder
+-git push -u origin master -> pushes commit to Github 
+7. Open repository on Learn IDE by 
+-cd into folder
+-make necessary changes
