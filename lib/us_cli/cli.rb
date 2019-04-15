@@ -26,10 +26,10 @@ def call
           when 'n'
             self.exit_states
             break
-          else 
-            puts "Invalid Entry. Please Try Again"
+          when !'y' || 'n' 
+            #return "Invalid Entry. Please Try Again"
             self.help
-            next
+            #next
           end
         end
       end
@@ -53,7 +53,7 @@ def list
 end
 
 def get_selection
-  puts "Hello, please choose a state:\n "
+  puts "\n" "Hello, please choose a state by its corresponding number:\n "
   input = gets.upcase.chomp
   if (1..50).include?(input.to_i)
     selection = STATES[input.to_i - 1]
@@ -65,6 +65,7 @@ def get_selection
     puts "Hi, you've chosen #{input.upcase}! \n "
   elsif  input != (001..050) || input != "#{STATES}"
     puts "Invalid input, please try again! \n ".upcase
+    self.help
   end
 end
 
@@ -115,6 +116,7 @@ def menu
         break 
       else 
         puts "Invalid input, please try again!"
+        #self.help
       end 
     end 
   end 
