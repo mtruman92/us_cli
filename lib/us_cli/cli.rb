@@ -17,7 +17,7 @@ def call
 def again?
     puts "Would you like more information about another state? Press 'y' for YES or 'n' for NO"
     input = gets.strip.downcase
-      input == 'y' || input == 'yes' ?   call : exit_states 
+    input != 'n' || input == 'no' ? call : exit_states 
   end  
 #end
  
