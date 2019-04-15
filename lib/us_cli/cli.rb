@@ -11,31 +11,15 @@ def call
     self.list
     self.get_selection #set the state to a State object
     self.display_state
-    self.help
-    #self.menu  #exit or not go back
-    #self.get_selection
-    input = gets.chomp
-    while input
-      case input
-        when 'y'  
-          self.list
-          self.get_selection 
-          puts self.display_state
-          self.help
-           input = gets.chomp
-          when 'n'
-            self.exit_states
-            break
-          when !'y' || 'n' 
-            #return "Invalid Entry. Please Try Again"
-            self.help
-            #next
-          end
-        end
-      end
-    #end
-  #end
+    self.again?
+  end
   
+def again?
+    puts "Would you like more information about another state? Press 'y' for YES or 'n' for NO"
+    input = gets.strip.downcase
+      input == 'y' || input == 'yes' ?   call : exit_states 
+  end  
+#end
  
     
 def help
