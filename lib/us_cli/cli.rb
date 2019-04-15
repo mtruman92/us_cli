@@ -13,14 +13,27 @@ def call
     self.help
     #self.menu  #exit or not go back
     #self.get_selection
-    #input = gets.chomp
-    #while input
-      #case input
-        #when 'restart'
-         # self.list
-          
+    input = gets.chomp
+    while input
+      case input
+        when 'y'
+          self.list
+          self.get_selection 
+          puts self.display_state
+          self.help
+          if input = gets.chomp
+            
+          #self.display_state
+          #self.help
+          #when 'n'
+            #self.exit_states
+            #break
+          else 
+            puts "Invalid Entry"
+          end
+        end
     #case input bla bla do bla bla 
-  #end
+  end
   #end
 end
     
