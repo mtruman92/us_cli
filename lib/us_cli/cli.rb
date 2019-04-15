@@ -45,11 +45,14 @@ def get_selection
     UsCli::Scraper.scrape_state(state)
   elsif STATES.include?"#{STATES[input.upcase.to_i - 1]}"
     puts "Hi, you've chosen #{STATES[input.upcase]}!" "\n "
-  elsif  input != (001..050) 
+  elsif input != (001..050) 
     puts "Invalid input, please try again! \n ".upcase
     self.again?
+  #else
+    #self.again?
   end
 end
+
 
 
 def exit_states
