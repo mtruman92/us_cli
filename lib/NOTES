@@ -3,7 +3,7 @@ e.g: https://www.history.com/topics/us-states and allows the user to interact wi
 
 Steps
 1. Choose a topic : I chose the United States as my topic because I feel this captures interesting facts and knowledge about 50 states all in one area. 
-2. Build your gem : Using the learn platform, I created my gem. In the terminal I executed the following:
+2. Build your gem using bundler: Using the learn platform, I created my gem. In the terminal I executed the following:
 - bundle gem us_cli (bundle gem + name of the gem I'm creating
 - follow prompts : test -> Y/N; MIT License -> Y/N; Code of Conduct -> Y/N 
 - terminal initalizes git repon -> gem is set up for git 
@@ -19,3 +19,5 @@ Steps
 7. Open repository on Learn IDE by 
 -cd into folder
 -make necessary changes
+-----------------------------------------------------------------------------------------------------------------------------------
+1. Created a bin file : The executable goes into the bin directory (united-states) without ruby file extension -> allows us to execute our CLI 
