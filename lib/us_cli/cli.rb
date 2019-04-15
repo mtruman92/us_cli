@@ -5,8 +5,6 @@ attr_accessor :state
 STATES = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Connecticut","Delaware","Florida","Georgia","Hawaii","Idaho","Illinois","Indiana","Iowa","Kansas","Kentucky","Louisiana","Maine","Maryland","Massachusetts","Michigan","Minnesota","Mississippi","Missouri","Montana","Nebraska","Nevada","New Hampshire","New Jersey","New Mexico","New York","North Carolina","North Dakota","Ohio","Oklahoma","Oregon","Pennsylvania","Rhode Island","South Carolina","South Dakota","Tennessee","Texas","Utah","Vermont","Virginia","Washington","West Virginia","Wisconsin","Wyoming" ]
 
 def call
-  #input = gets.chomp
-  #while input
     self.greeting 
     self.list
     self.get_selection #set the state to a State object
@@ -46,10 +44,10 @@ def get_selection
     @state = UsCli::UnitedStates.new(selection.downcase)
     UsCli::Scraper.scrape_state(state)
   elsif STATES.include?"#{STATES[input.upcase.to_i - 1]}"
-    puts "Hi, you've chosen #{input.upcase}! \n "
-  elsif  input != (001..050) || input != "#{STATES}"
+    puts "Hi, you've chosen #{STATES[input.upcase]}!" "\n "
+  elsif  input != (001..050) 
     puts "Invalid input, please try again! \n ".upcase
-    self.help
+    self.again?
   end
 end
 
