@@ -6,7 +6,7 @@ class UsCli::UnitedStates
   
   def initialize(name)
     @name = name
-    @url = BASE_URL + name
+    @url = BASE_URL + name.gsub(" ", "-")
     @facts = []
   end
   
