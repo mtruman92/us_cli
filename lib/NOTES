@@ -8,3 +8,11 @@ Steps
 - follow prompts : test -> Y/N; MIT License -> Y/N; Code of Conduct -> Y/N 
 - terminal initalizes git repon -> gem is set up for git 
 - cd into new folder created -> cd us_cli
+3. Open up Github 
+4. Create a new repository 
+5. Name the repository -> Create
+6. Create the repository on the command line in learn IDE 
+- git add .
+-git commit -m "first commit"
+-git remote add origin "git path provided"
+-git push -u origin master
