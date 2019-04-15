@@ -23,16 +23,13 @@ def call
           puts self.display_state
           self.help
            input = gets.chomp
-           # if input != "y" || "n"
-             # puts "Invalid Entry. Please try again!"
-              #self.help 
-              #self.list
-              #self.get_selection 
-              #puts self.display_state
-              #self.help
           when 'n'
             self.exit_states
             break
+          else 
+            puts "Invalid Entry. Please Try Again"
+            self.help
+            next
           end
         end
       end
