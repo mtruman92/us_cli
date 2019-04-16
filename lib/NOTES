@@ -23,4 +23,8 @@ Steps
 1. Created a bin file : The executable goes into the bin directory (united-states) without ruby file extension -> allows us to execute our CLI 
 2. Tell bin to interpret the file as ruby : "#!/usr/bin/env ruby" -> shebang line
 3. module.class(UsCLI)::CLI -> that I can instantiate and then use the call method to run/start the program ->UsCLI::CLI.new.call
+                                (Start programming into this object)
 4. Tells interface to go into lib directory and tell it to load file within this directory -> require './lib/us_cli'
+5. us-cli.rb ->  puts require-relative to allow execution of files within directory.
+6. Within all my classes - I included method definitions which serve as instance methods on instances of the class. 
+
