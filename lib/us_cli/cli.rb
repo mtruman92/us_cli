@@ -12,7 +12,6 @@ STATES = ["Alabama","Alaska","Arizona","Arkansas","California","Colorado","Conne
     self.run
     self.invalid
     self.exit_states
-    #self.again?
   end
 
   def greeting

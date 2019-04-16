@@ -17,8 +17,7 @@ def self.scrape_state(state)
 
   doc.css("div.m-detail--body ul").each do |fact|
     state.facts << fact.text
+    end
   end
-end
-
 end
 
