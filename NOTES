@@ -2,11 +2,11 @@ Goal: To build a ruby gem that provides a command line interface (CLI) that scra
 e.g: https://www.history.com/topics/us-states and allows the user to interact with the CLI to follow commands and receive outputs.
 
 Steps
-1. Choose a topic : I chose the United States as my topic because I feel this captures interesting facts and knowledge about 50 states all in one area. 
+1. Choose a topic: I chose the United States as my topic because I feel this captures interesting facts and knowledge about 50 states all in one area. 
 2. Build your gem using bundler: Using the learn platform, I created my gem. In the terminal I executed the following:
 - bundle gem us_cli (bundle gem + name of the gem I'm creating
 - follow prompts : test -> Y/N; MIT License -> Y/N; Code of Conduct -> Y/N 
-- terminal initalizes git repon -> gem is set up for git 
+- terminal initializes git repon -> gem is set up for git 
 - cd into new folder created -> cd us_cli
 3. Open up Github 
 4. Create a new repository 
