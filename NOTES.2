@@ -4,4 +4,17 @@ cli.rb
    -contains the command line interface that i want to run
    -includes attr_accessor :state -> retrieve :state and allow me to use this attribute across the class method (@state)
    -creates a constant STATES to encapsulate an array of symbols :states defined in the class
+   -def call method -> captures the sequence of how I want my CLI to run by methods. self.method-> sets self to the new instance of the class giving me access to the current object (the object currently receiving the message).
+   -defines meaining methods
    
+  scraper.rb
+  -contains the file I want the command line interface to utilize to scrape my website for the features i request.
+  - require nokogiri - web scraping gem 
+  - require open-uri - lets me open the html and pass it to nokogiri to do the webscraping 
+  - require pry - run time developer console 
+  - define scrape method
+  - begin scraping utilizing the inspect feature of the website to find the table elements 
+  
+  unitedstate.rb
+  -contains the file that I want the command line interface to utilize to capture my attr_accessor(s) that I will use throughout the cli. Each state will utilize these attributes. 
+  - def initialize - tells the cli to utilize the website base url + path to capture each state's information
